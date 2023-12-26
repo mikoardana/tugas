@@ -29,8 +29,10 @@ function hitungTotal() {
     var totalPembayaran = totalBelanja;
     if (totalBelanja > batasDiskon) {
         totalPembayaran = totalBelanja - (totalBelanja * diskon);
+        totaldiskon = totalBelanja - totalPembayaran
     }
-    document.getElementById('totalPembayaran').innerHTML = 'Total Pembayaran: ' + totalPembayaran.toFixed(2);
+    document.getElementById('totalPembayaran').innerHTML = 'Total Pembayaran Rp. ' + totalPembayaran.toFixed();
+    document.getElementById('diskon').innerHTML = 'Selamat Anda Mendapatkan Diskon 10% Sebesar Rp. ' + totaldiskon.toFixed();
 }
 
 function konversiNilai() {
@@ -54,28 +56,28 @@ function konversiNilai() {
     document.getElementById('hasilKonversi').innerHTML = 'Nilai huruf Anda: ' + nilaiHuruf;
 }
 
-function hitungRataRata() {
+function hitungRataRata1() {
     var mtk = parseFloat(document.getElementById('mtkInput').value);
     var ipa = parseFloat(document.getElementById('ipaInput').value);
     var ips = parseFloat(document.getElementById('ipsInput').value);
-    var bing = parseFloat(document.getElementById('bingInput').value);
-    if (isNaN(mtk) || isNaN(ipa) || isNaN(ips) || isNaN(bing)) {
+    var pkn = parseFloat(document.getElementById('pknInput').value);
+    if (isNaN(mtk) || isNaN(ipa) || isNaN(ips) || isNaN(pkn)) {
         alert('Masukkan nilai numerik untuk semua mata pelajaran');
         return;
     }
-    var rataRata = (mtk + ipa + ips + bing) / 4;
+    var rataRata = (mtk + ipa + ips + pkn) / 4;
     document.getElementById('hasilRataRata').innerHTML = 'Rata-rata nilai: ' + rataRata.toFixed(2);
 }
 function nilaiTertinggi() {
     var mtk = parseFloat(document.getElementById('mtkInput').value);
     var ipa = parseFloat(document.getElementById('ipaInput').value);
     var ips = parseFloat(document.getElementById('ipsInput').value);
-    var bing = parseFloat(document.getElementById('bingInput').value);
-    if (isNaN(mtk) || isNaN(ipa) || isNaN(ips) || isNaN(bing)) {
+    var pkn = parseFloat(document.getElementById('pknInput').value);
+    if (isNaN(mtk) || isNaN(ipa) || isNaN(ips) || isNaN(pkn)) {
         alert('Masukkan nilai numerik untuk semua mata pelajaran');
         return;
     }
-    var nilaiTertinggi = Math.max(mtk, ipa, ips, bing);
+    var nilaiTertinggi = Math.max(mtk, ipa, ips, pkn);
     document.getElementById('hasilTertinggi').innerHTML = 'Nilai tertinggi: ' + nilaiTertinggi;
 }
 
